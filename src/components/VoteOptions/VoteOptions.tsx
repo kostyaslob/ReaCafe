@@ -1,6 +1,6 @@
 import css from "./VoteOptions.module.css";
 
-export default function VoteOptions({ onVotes, votes, onReset }) {
+export default function VoteOptions({ onVotes, votes, onReset, canReset }) {
   return (
     <div className={css.container}>
       <button onClick={(votes) => onVotes("good")} className={css.button}>
@@ -12,9 +12,11 @@ export default function VoteOptions({ onVotes, votes, onReset }) {
       <button onClick={(votes) => onVotes("bad")} className={css.button}>
         Bad
       </button>
-      <button onClick={onReset} className={`${css.button} ${css.reset}`}>
-        Reset
-      </button>
+      {canReset > 0 &&
+        <button onClick={onReset} className={`${css.button} ${css.reset}`}>
+          Reset
+        </button>
+      }
     </div>
   );
 }

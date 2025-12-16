@@ -37,7 +37,12 @@ export default function App() {
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions onVotes={handleVotes} votes={votes} onReset={resetVotes} />
+      <VoteOptions
+        onVotes={handleVotes}
+        votes={votes}
+        onReset={resetVotes}
+        canReset={totalVotes}
+      />
       <VoteStats
         votes={votes}
         totalVotes={totalVotes}
