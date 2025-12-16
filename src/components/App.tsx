@@ -43,7 +43,7 @@ export default function App() {
         totalVotes={totalVotes}
         positiveRate={positiveRate}
       />
-      <Notification />
+      {totalVotes === 0 && <Notification />}
     </div>
   );
 }
