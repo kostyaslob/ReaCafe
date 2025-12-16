@@ -1,24 +1,18 @@
 import css from "./VoteOptions.module.css";
 
-export default function VoteOptions({ updateVotes, votes, resetVotes }) {
+export default function VoteOptions({ onVotes, votes, onReset }) {
   return (
     <div className={css.container}>
-      <button onClick={(votes) => updateVotes("good")} className={css.button}>
+      <button onClick={(votes) => onVotes("good")} className={css.button}>
         Good
       </button>
-      <button
-        onClick={(votes) => updateVotes("neutral")}
-        className={css.button}
-      >
+      <button onClick={(votes) => onVotes("neutral")} className={css.button}>
         Neutral
       </button>
-      <button onClick={(votes) => updateVotes("bad")} className={css.button}>
+      <button onClick={(votes) => onVotes("bad")} className={css.button}>
         Bad
       </button>
-      <button
-        onClick={resetVotes}
-        className={`${css.button} ${css.reset}`}
-      >
+      <button onClick={onReset} className={`${css.button} ${css.reset}`}>
         Reset
       </button>
     </div>

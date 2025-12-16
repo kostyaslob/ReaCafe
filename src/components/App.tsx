@@ -29,16 +29,19 @@ export default function App() {
     });
   }
 
+  let totalVotes = 0;
+  let positiveRate = 0;
+
 
   return (
     <div className={css.app}>
       <CafeInfo />
-      <VoteOptions
-        updateVotes={handleVotes}
+      <VoteOptions onVotes={handleVotes} votes={votes} onReset={resetVotes} />
+      <VoteStats
         votes={votes}
-        resetVotes={resetVotes}
+        totalVotes={totalVotes}
+        positiveRate={positiveRate}
       />
-      <VoteStats votes={votes} />
       <Notification />
     </div>
   );
